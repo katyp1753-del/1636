@@ -1,0 +1,250 @@
+/* 기본 스타일 및 변수 정의 */
+:root {
+  --primary-color: #1a4980;
+  --primary-hover: #0d2f55;
+  --bg-color: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --badge-online: #2e7d32;
+  --badge-offline: #c62828;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* 헤더 디자인 */
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.symbol {
+  font-size: 2rem;
+}
+
+.logo-area h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-area p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* 메인 컨테이너 */
+.container {
+  max-width: 1100px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+/* 검색 및 필터 패널 */
+.control-panel {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  background: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(26, 73, 128, 0.1);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  display: none;
+}
+
+/* 퀵 태그 버튼 */
+.quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.2rem;
+}
+
+.tag-btn {
+  background: #eef2f7;
+  border: 1px solid #d0d7de;
+  padding: 0.35rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-btn:hover {
+  background: #dbe4ee;
+}
+
+.tag-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* 상태 바 */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  padding: 0 0.2rem;
+}
+
+.count-info {
+  font-size: 0.95rem;
+}
+
+.highlight {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.reset-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.reset-btn:hover {
+  background: #eee;
+}
+
+/* 데이터 테이블 반응형 레아아웃 */
+.table-wrapper {
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th, .data-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  background-color: #f8fa0010;
+  background-color: #f1f4f8;
+  font-weight: 600;
+  color: #444;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f9fbfd;
+}
+
+/* 상태 태그 스타일 */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge.online {
+  background-color: #e8f5e9;
+  color: var(--badge-online);
+}
+
+.badge.offline {
+  background-color: #ffebee;
+  color: var(--badge-offline);
+}
+
+.badge.category {
+  background-color: #eef3f8;
+  color: #334e68;
+}
+
+.no-data {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 반응형 디자인 (모바일 최적화) */
+@media (max-width: 768px) {
+  .control-panel {
+    grid-template-columns: 1fr;
+  }
+  
+  .data-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

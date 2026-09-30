@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>행정안전부 민원서비스 검색 및 필터</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="logo-area">
+        <span class="symbol">🏛️</span>
+        <div>
+          <h1>행정안전부 민원서비스 안내</h1>
+          <p>민원인이 원하는 민원서비스를 빠르게 찾아보세요</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 검색 및 필터 컨트롤 영역 -->
+    <section class="control-panel">
+      <div class="search-box">
+        <label for="searchInput" class="label">서비스명 검색</label>
+        <div class="input-wrapper">
+          <input type="text" id="searchInput" placeholder="검색할 서비스명을 입력하세요 (예: 주민등록, 여권, 건축)">
+          <button type="button" id="clearBtn" class="clear-btn" aria-label="검색어 초기화">✕</button>
+        </div>
+      </div>
+
+      <div class="filter-box">
+        <label for="categorySelect" class="label">민원분야 필터</label>
+        <select id="categorySelect">
+          <option value="ALL">전체 분야 보기</option>
+          <option value="주민등록">주민등록</option>
+          <option value="건축">건축</option>
+          <option value="세무">세무</option>
+          <option value="복지">복지</option>
+          <option value="교통">교통</option>
+          <option value="환경">환경</option>
+          <option value="위생">위생</option>
+          <option value="여권">여권</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- 빠른 분야 선택 태그 -->
+    <section class="quick-tags" id="quickTags">
+      <button class="tag-btn active" data-category="ALL">전체</button>
+      <button class="tag-btn" data-category="주민등록">주민등록</button>
+      <button class="tag-btn" data-category="건축">건축</button>
+      <button class="tag-btn" data-category="세무">세무</button>
+      <button class="tag-btn" data-category="복지">복지</button>
+      <button class="tag-btn" data-category="교통">교통</button>
+      <button class="tag-btn" data-category="환경">환경</button>
+      <button class="tag-btn" data-category="위생">위생</button>
+      <button class="tag-btn" data-category="여권">여권</button>
+    </section>
+
+    <!-- 상태 및 건수 표시 영역 -->
+    <section class="status-bar">
+      <div class="count-info">
+        검색 결과: 총 <strong id="totalCount">22</strong>건 중 <strong id="filteredCount" class="highlight">22</strong>건 표시
+      </div>
+      <button type="button" id="resetAllBtn" class="reset-btn">🔄 검색/필터 초기화</button>
+    </section>
+
+    <!-- 목록 표시 테이블 -->
+    <section class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>서비스명</th>
+            <th>민원분야</th>
+            <th>소관기관</th>
+            <th>온라인처리</th>
+            <th>처리기한</th>
+            <th>수수료</th>
+          </tr>
+        </thead>
+        <tbody id="serviceTableBody">
+          <!-- JS로 동적 생성 -->
+        </tbody>
+      </table>
+      <div id="noDataMessage" class="no-data hidden">
+        🔍 검색 조건에 일치하는 민원서비스가 없습니다.
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
